@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    /*font-family: 'Microsoft YaHei',SimHei,"微软雅黑","黑体";*/
+}
+li{
+    list-style: none;
+}
+input{
+    outline: none;
+}
+a{
+    text-decoration: none;
+    color: #666666;
+}
+
+html {
+    font-size: 100px;
+}
+body{
+    background: #f5f5f5;
+    font-size: 0.12rem;
+
+}
+
+/*网页头部代码*/
+header {
+    height: 0.42rem;
+    background: #ff8a00;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 0;
+}
+
+header h1 img {
+    width: 1rem;
+    height: 0.34rem;
+}
+
+header .icon {
+    font-size: 0;
+}
+header .icon img {
+    width: 0.23rem;
+    height: 0.29rem;
+    margin-left: 0.2rem;
+}
+/*网页底部版权部分*/
+.copyright{
+    background: #2f3130;
+    color: #939494;
+    padding: 0 0.15rem;
+}
+.copyright h2{
+    font-size: 0.14rem;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    border-bottom: 1px solid #3e403f;
+}
+.copyright .content{
+    padding: 0.15rem 0;
+}
+.copyright ul{
+    display: flex;
+}
+.copyright li{
+    flex: 1;
+    text-align: center;
+    display: flex;
+    justify-items: center;
+}
+.copyright li img{
+    width: 0.18rem;
+    height: 0.21rem;
+    margin-right: 0.16rem;
+    margin-left: 0.1rem;
+}
+.copyright .text{
+    margin-top: 0.16rem;
+}
+.copyright p{
+    font-size: 0.12rem;
+}
+.copyright .text p{
+    line-height: 0.18rem;
+    text-align: center;
+
+}

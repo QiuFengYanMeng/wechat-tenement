@@ -1,0 +1,263 @@
+
+.banner {
+    width: 100%;
+    height: 2.24rem;
+    background: url("../image/index/banner.png") 0 0 no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    position: relative;
+}
+
+.banner form {
+    position: absolute;
+    bottom: 0.1rem;
+    left: 0.15rem;
+}
+
+.banner form .icon {
+    position: absolute;
+    left: 0.1rem;
+    bottom: 0.09rem;
+    width: 0.165rem;
+    height: 0.165rem;
+    background: url("../image/index/seach.jpg") 0 center no-repeat;
+    background-size: cover;
+    z-index: 2;
+}
+
+.search {
+    width: 2.89rem;
+    height: 0.35rem;
+    border-radius: 6px;
+    box-shadow: inset 3px 3px rgba(204, 204, 204, 0.39), 3px 3px rgba(204, 204, 204, 0.39);
+    padding-left: 0.33rem;
+}
+
+.navList {
+
+}
+
+.navList ul {
+    height: 1.1rem;
+    background: #ff8a00;
+    font-size: 0.12rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.navList ul li {
+    width: 0.55rem;
+    height: 0.54rem;
+    margin-top: 0.18rem;
+
+}
+
+.navList ul a {
+    color: #fff;
+    width: 0.55rem;
+    height: 0.54rem;
+    display: inline-block;
+    padding-top: 0.6rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.navList ul li:nth-of-type(1) a {
+    background: url("../image/index/index_03.png") 0 0 no-repeat;
+    background-size: contain;
+}
+
+.navList ul li:nth-of-type(2) a {
+    background: url("../image/index/index_05.png") 0 0 no-repeat;
+    background-size: contain;
+}
+
+.navList ul li:nth-of-type(3) a {
+    background: url("../image/index/index_07.png") 0 0 no-repeat;
+    background-size: contain;
+}
+
+.navList ul li:nth-of-type(4) a {
+    background: url("../image/index/index_09.png") 0 0 no-repeat;
+    background-size: contain;
+}
+
+.banner2 {
+    padding: 0.1rem 0;
+    background: #f5f5f5;
+
+}
+
+.banner2 img {
+    width: 100%;
+
+}
+
+.hotHouse {
+    margin-bottom: 0.05rem;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.hotHouse h2 {
+    background: #ff8a00;
+    font-size: 0.14rem;
+    color: #fff;
+    padding: 0.1rem 0 0.08rem 0.2rem;
+
+}
+.hotHouse h2 strong{
+    font-size: 0.18rem;
+}
+.hotHouse h2 span {
+    font-size: 0.09rem;
+}
+
+.houseList {
+    margin: 0 0.2rem;
+}
+
+.houseList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2rem 0;
+    border-bottom: 1px solid red;
+}
+.houseList li:last-of-type{
+    border-bottom:none;
+}
+.houseList li .img img{
+    width: 0.81rem;
+    height: 0.81rem;
+}
+
+.houseList li .text h3{
+    font-size: 0.18rem;
+    width: 1.87rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.houseList li .text p{
+    font-size: 0.12rem;
+    padding: 0.05rem 0;
+    color: #000;
+    overflow: hidden;
+
+}
+.houseList li .text p:nth-of-type(2){
+    color: #8b8b8b;
+}
+.houseList li .text strong{
+    color: #ff8a00;
+    float: right;
+}
+.houseList li .text p:nth-of-type(2) span{
+    color: #999999;
+    float: right;
+}
+.houseList li .text p a{
+    color: #849aae;
+    background: #f4f7f9;
+    padding: 0.02rem 0.04rem;
+}
+.hotAttention{
+    background: #ffffff;
+    border-top: 1px solid #e5e5e5;
+
+}
+.hotAttention ul.title{
+    font-size: 0.18rem;
+    border-bottom: 1px solid #ff8a00;
+    display: flex;
+    line-height: 0.54rem;
+}
+.hotAttention ul.title li{
+    flex: 1;
+    text-align: center;
+}
+.hotAttention ul.title .active{
+    border-bottom: 1px solid #ff8a00;
+}
+.hotAttention ul.title .active a{
+    color: #ff8a00;
+}
+.hotAttention .content{
+    font-size: 0.12rem;
+    display: flex;
+}
+.hotAttention .content ul{
+    flex: 1;
+    text-align: left;
+    margin: 0.12rem 0 0.12rem 0.2rem;
+}
+.hotAttention .content ul li{
+    line-height: 0.28rem;
+}
+
+
+.download{
+    width: 100%;
+    height: 0.5rem;
+    background: rgba(0,0,0,0.5);
+    line-height: 0.5rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    padding-left: 0.2rem;
+}
+.download .close{
+    width: 0.14rem;
+    height: 0.15rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.downLft{
+    display: flex;
+    justify-content: space-around;
+    flex: 6;
+    font-size: 0.12rem;
+    color: #fff;
+}
+.downLft .icon img{
+    width: 0.3rem;
+    height: 0.3rem;
+    margin-top: 0.1rem;
+}
+.downLft .text{
+    margin-top: -0.1rem;
+}
+.downLft .text p:nth-of-type(1){
+    height: 0.18rem;
+    font-size: 0.18rem ;
+}
+
+.downLft .text p:nth-of-type(2){
+     height: 0.12rem;
+}
+
+.downRight{
+    background: #ff8a00;
+    flex: 4;
+    line-height:0.5rem ;
+    font-size: 0.16rem;
+    text-align: center;
+}
+.downRight a{
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+

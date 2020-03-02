@@ -1,0 +1,93 @@
+
+.rentalAddr{
+    height: 0.36rem;
+    line-height: 0.36rem;
+    background: #ffffff;
+    border-bottom: 1px solid #c5c5c5;
+    padding-left: 0.15rem;
+}
+.registerForm{
+
+}
+.registerForm li{
+    height: 0.43rem;
+    border-bottom: 1px solid #dcdcdc;
+
+}
+.registerForm li input{
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 0.42rem;
+    line-height: 0.42rem;
+    padding-left: 0.14rem;
+}
+.mima{
+    position: relative;
+}
+.mima a{
+    position: absolute;
+    top: 0.04rem;
+    right: 0.16rem;
+    text-align: center;
+    border: 1px solid #dcdcdc;
+    padding: 0.08rem 0.1rem;
+}
+.registerBtn{
+    width: 3rem;
+    height: 0.48rem;
+    background: #ff8a00;
+    outline: none;
+    border: none;
+    color: #ffffff;
+    font-size: 0.18rem;
+    margin-top: 0.14rem;
+    margin-left: 0.1rem;
+}
+
+
+.login .title{
+    display: flex;
+    background: #ffffff;
+}
+.login .title li{
+    flex: 1;
+    text-align: center;
+    line-height: 0.42rem;
+    border-bottom: 4px solid #d1d1d1;
+}
+.login .title li.active{
+    border-bottom: 4px solid #ff8a00;
+
+}
+.tiShi{
+    margin: 0.14rem 0.1rem 0;
+}
+.tiShi a:first-of-type{
+    float: left;
+    color: #ff8a00;
+}
+.tiShi a:last-of-type{
+    float: right;
+}
+/*切换普通登录和快速登录的接口处*/
+.login form>div{
+    display: none;
+}
+.login form>div.active{
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
