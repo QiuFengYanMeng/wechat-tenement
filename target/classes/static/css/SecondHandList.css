@@ -1,0 +1,318 @@
+
+.secondSearch{
+    width: 2.9rem;
+    margin: 0.1rem auto;
+    position: relative;
+}
+.secondSearch input{
+    width: 2.9rem;
+    height: 0.41rem;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #cccccc;
+    padding-left: 0.1rem;
+    font-size: 0.12rem;
+}
+.secondSearch span{
+    position: absolute;
+    top: 0.12rem;
+    right: 0.5rem;
+
+}
+.secondSearch a{
+    position: absolute;
+    top: 0.12rem;
+    right: 0.18rem;
+}
+.secondSearch a img{
+    width: 0.18rem;
+    height: 0.2rem;
+}
+
+.secondList{
+
+}
+.secondList .list{
+    width: 100%;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.12rem;
+    z-index: 4;
+    position: relative;
+    background: #FFF;
+    /*/!*点击区域或价格等时候通过JavaScript改变定位方式就可以让导航排在最上方*!/*/
+    /*position: fixed;*/
+    /*top: 0;*/
+    /*left: 0;*/
+}
+.secondList .list li{
+    position: relative;
+}
+.secondList .list h2 a{
+    position: relative;
+}
+/*制作三角形箭头*/
+.secondList .list h2 span{
+    border-top: 5px solid #ccc;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid transparent;
+    position: absolute;
+    top: 0.06rem;
+    right: -0.14rem;
+}
+/*添加active类名就可以改变小箭头的方向和颜色*/
+.secondList .list h2 .active span{
+    border-top: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #ff8a00;
+    border-left: 5px solid transparent;
+    top: 0.02rem;
+}
+.secondList .list h2 .active{
+    color: #ff8a00;
+}
+/*遮罩层*/
+.hide{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: none;  /*接口*/
+}
+
+.someList{
+    width: 100%;
+    position: fixed;
+    top: 0.4rem;
+    left: 0;
+    z-index: 10;
+}
+.someList li{
+    /*display: none;   /!*接口*!/*/
+}
+.area{
+    display: flex;
+    background: #fff;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    font-size: 0.12rem;
+    /*display: block;*/
+    display: none;
+}
+
+.area .title{
+   flex: 1;
+    background: #f0f0f0;
+    border-right: 1px solid #cccccc;
+    font-size: 0.12rem;
+    text-align: center;
+}
+.area .title h2{
+    width: 100%;
+    height: 0.4rem;
+    line-height: 0.4rem;
+}
+
+.area .title .active{
+    color: #ff8a00;
+    background: #fff;
+    margin-right: -1px;
+    border-right: 2px solid #fff;;
+}
+.area .hideList{
+    flex: 3;
+}
+
+.area .hideList ul li{
+    float: left;
+    width: 45%;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    text-align: center;
+    /*margin-left: 0.1rem;*/
+    box-sizing: border-box;
+
+}
+.area .hideList ul li .active{
+    color: #ff8a00;
+}
+.price{
+    background: #fff;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    font-size: 0.12rem;
+    display: none;
+}
+.price li{
+    height: 0.4rem;
+    line-height: 0.4rem;
+    border-bottom: 1px solid #ccc;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+}
+.price li:last-of-type{
+    border-bottom: none;
+}
+
+.house{
+    background: #fff;
+    padding-bottom: 0.2rem;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top:0;
+    z-index: 3;
+    font-size: 0.12rem;
+    display: none;
+}
+.house li{
+    height: 0.4rem;
+    line-height: 0.4rem;
+    border-bottom: 1px solid #ccc;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+}
+.house li:last-of-type{
+    border-bottom: none;
+}
+.house span{
+    width: 0.14rem;
+    height: 0.15rem;
+    float: right;
+    margin-top: 0.12rem;
+    margin-right: 0.2rem;
+    border: 1px solid #c5c3c3;
+}
+.house span.active{
+    border: 1px solid #ff8a00;
+    background: url("../image/SecondHandList/ok.png") center center no-repeat;
+
+}
+.house  .btnOK{
+    text-align: center;
+    background: #ff8a00;
+    color: #fff;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    font-weight: bold;
+}
+.more{
+    background: #fff;
+    width: 100%;
+    padding: 0 0.2rem 0.2rem;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    font-size: 0.12rem;
+    display: none;
+}
+.more h3{
+    padding: 0.2rem 0 0.12rem 0;
+    font-size: 0.14rem;
+}
+.more .childList{
+    /*display: flex;*/
+    /*justify-content: space-around;*/
+    /*flex-flow: wrap;*/
+    padding-bottom: 0.08rem;
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+
+
+}
+.more .childList li{
+    float: left;
+    /*flex: 1;*/
+    width: 22%;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+    border: 1px solid #cccccc;
+    text-align: center;
+    margin-left: 0.05rem;
+    margin-bottom: 0.12rem;
+    height: 0.25rem;
+    line-height: 0.25rem;
+    font-size: 0.1rem;
+
+
+}
+.more .childList li:first-of-type,.more .childList li:nth-of-type(5),.more .childList li:nth-of-type(9){
+    margin-left: 0;
+}
+.more .clear{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    text-align: center;
+}
+.more .btnOK{
+    height: 0.4rem;
+    line-height: 0.4rem;
+    text-align: center;
+    background: #ff8a00;
+}
+.more .btnOK a{
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+
+.secondContent{
+    padding: 0 0.2rem;
+    font-size: 0.12rem;
+}
+.secondContent li{
+    padding: 0.2rem 0;
+    border-bottom: 1px solid #ff8a00;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.secondContent li:last-of-type{
+    border-bottom: none;
+}
+.secondContent .left img{
+    width: 0.81rem;
+    height: 0.81rem;
+}
+.secondContent .right{
+    width: 1.87rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
+}
+.secondContent .right h2{
+    font-size: 0.14rem;
+}
+.secondContent .right p{
+     color: #b0b0b0;
+     line-height: 0.21rem;
+ }
+.secondContent .right p:first-of-type{
+    color: #000;
+    margin-top: 0.1rem;
+}
+.secondContent .right strong{
+    color: #ff8a00;
+}
+
+
+

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+
+    <title>找房无忧-首页</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<!--头部-->
+<header>
+    <h1><a href="#"><img src="image/index/logo.jpg" alt=""/></a></h1>
+
+    <div class="icon">
+        <a href="my.html"><img src="image/index/my.jpg" alt=""/></a>
+    </div>
+</header>
+
+
+
+<!--热门房源-->
+<section class="hotHouse">
+    <h2>
+        <strong>热门房源</strong><br/>
+        <span> Hot house</span>
+    </h2>
+    <ul class="houseList">
+	   <a href="rentalDetails.html">
+		<li>
+            <div class="img"><img src="image/index/img1.jpg" alt=""/></div>
+            <div class="text">
+                <h3>文化部中间层 一层带阁楼</h3>
+                <p>2室1厅96㎡南北 <strong>1105万</strong></p>
+                <p>红庙北里 <span>14268元/平</span></p>
+                <p>
+                    <a href="#">学区房</a>
+                    <a href="#">独家</a>
+                </p>
+            </div>
+        </li>
+	   </a>
+        
+        <li>
+            <div class="img"><img src="image/index/img2.png" alt=""/></div>
+            <div class="text">
+                <h3>光大水墨 精装复式 稀缺</h3>
+                <p>2室1厅96㎡南北 <strong>280万</strong></p>
+                <p>光大水墨 <span>14268元/平</span></p>
+                <p>
+                    <a href="#">学区房</a>
+                    <a href="#">独家</a>
+                    <a href="#">满五唯一</a>
+                </p>
+            </div>
+        </li>
+        <li>
+            <div class="img"><img src="image/index/img3.png" alt=""/></div>
+            <div class="text">
+                <h3>南北通透两居 精装修 无</h3>
+                <p>2室1厅96㎡南北 <strong>320万</strong></p>
+                <p>北京新天地 <span>14268元/平</span></p>
+                <p>
+                    <a href="#">地铁房</a>
+                    <a href="#">独家</a>
+                </p>
+            </div>
+        </li>
+    </ul>
+
+
+</section>
+
+
+
+
+<script src="js/rem.js"></script>
+<script>
+    var close = document.getElementById('close');
+    var download = document.getElementById('download');
+    close.onclick = function(){
+        download.style.display = 'none';
+    }
+</script>
+</body>
+</html>
