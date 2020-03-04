@@ -1,3 +1,17 @@
 # 端口，8080
 server:
   port: 8080
+
+spring:
+  # Redis 连接信息
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+
+# 与微信相关的配置
+wechat:
+  appId:
+  secret:
+  accessTokenUrl:  https://api.weixin.qq.com/cgi-bin/token
+  menuUrl: https://api.weixin.qq.com/cgi-bin/menu/create

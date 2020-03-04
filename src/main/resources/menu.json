@@ -1,0 +1,32 @@
+{
+  "button":[
+    {
+      "type":"click",
+      "name":"我的海报",
+      "key":"get-post"
+    },
+    {
+      "name":"租房新闻",
+      "sub_button":[
+        {
+          "type":"view",
+          "name":"腾讯新闻",
+          "url":"https://news.qq.com/"
+        },
+        {
+          "type":"view",
+          "name":"网易新闻",
+          "url":"https://news.163.com/"
+        },
+        {
+          "type":"view",
+          "name":"搜索更多",
+          "url":"https://www.baidu.com/index.php?tn=monline_3_dg"
+        }]
+    },
+    {
+      "name":"租房新闻",
+      "type":"view",
+      "url":"http://4ayuih.natappfree.cc/index.html"
+    }]
+}

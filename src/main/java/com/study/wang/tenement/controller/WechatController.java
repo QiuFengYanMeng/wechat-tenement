@@ -1,14 +1,17 @@
 package com.study.wang.tenement.controller;
 
+import com.study.wang.tenement.util.AccessTokenUtil;
 import com.study.wang.tenement.util.MessageUtil;
 import com.study.wang.tenement.util.XMLUtil;
+import lombok.extern.slf4j.Slf4j;
+import okhttp3.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -20,7 +23,11 @@ import java.util.Map;
  * @date 2020-03-03
  * */
 @RestController
+@Slf4j
 public class WechatController {
+
+    @Value("${wechat.menuUrl}")
+    private String menuUrl;
 
     /**
      *  与微信服务器进行认证的API接口
@@ -60,6 +67,12 @@ public class WechatController {
             //如果是关注事件
             if (event.equals("subscribe")) {
                 reply = "欢迎您关注微租房平台！";
+            }else if (event.equals("CLICK")) {
+                //如果是点击事件，获取菜单的key值，实现我们自己的业务逻辑
+                String key = map.get("EventKey");
+                if (key.equals("get-post")) {
+                    reply = "功能正在建设中，请期待...";
+                }
             }
         }else if (msgType.equals("text")) {
             //用户发送给我们的消息
@@ -79,5 +92,60 @@ public class WechatController {
         }
 
         return MessageUtil.formatMsg(fromUser , toUser , 454245 , "text" , reply);
+    }
+
+    /**
+     *  创建菜单
+     * */
+    @GetMapping(value = "/create-menu")
+    public Object test () {
+        String token = AccessTokenUtil.getToken();
+        String paramStr = "{\n" +
+                "  \"button\":[\n" +
+                "    {\n" +
+                "      \"type\":\"click\",\n" +
+                "      \"name\":\"我的海报\",\n" +
+                "      \"key\":\"get-post\"\n" +
+                "    },\n" +
+                "    {\n" +
+                "      \"name\":\"租房新闻\",\n" +
+                "      \"sub_button\":[\n" +
+                "        {\n" +
+                "          \"type\":\"view\",\n" +
+                "          \"name\":\"腾讯新闻\",\n" +
+                "          \"url\":\"https://news.qq.com/\"\n" +
+                "        },\n" +
+                "        {\n" +
+                "          \"type\":\"view\",\n" +
+                "          \"name\":\"网易新闻\",\n" +
+                "          \"url\":\"https://news.163.com/\"\n" +
+                "        },\n" +
+                "        {\n" +
+                "          \"type\":\"view\",\n" +
+                "          \"name\":\"搜索更多\",\n" +
+                "          \"url\":\"https://www.baidu.com/index.php?tn=monline_3_dg\"\n" +
+                "        }]\n" +
+                "    },\n" +
+                "    {\n" +
+                "      \"name\":\"租房新闻\",\n" +
+                "      \"type\":\"view\",\n" +
+                "      \"url\":\"http://4ayuih.natappfree.cc/index.html\"\n" +
+                "    }]\n" +
+                "}\n";
+
+
+        try {
+            OkHttpClient client = new OkHttpClient();
+            RequestBody requestBody = RequestBody.create(MediaType.parse("application/json;charset=utf-8") , paramStr);
+            Request request = new Request.Builder().url(menuUrl + "?access_token=" + token).post(requestBody).build();
+            Response response = client.newCall(request).execute();
+            if (response.isSuccessful()) {
+                System.out.println("创建菜单成功");
+            }
+        }catch (Exception e) {
+            log.error("创建菜单出错");
+        }
+
+        return "success";
     }
 }
