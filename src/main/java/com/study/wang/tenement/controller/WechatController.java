@@ -108,26 +108,26 @@ public class WechatController {
                 "      \"key\":\"get-post\"\n" +
                 "    },\n" +
                 "    {\n" +
-                "      \"name\":\"租房新闻\",\n" +
+                "      \"name\":\"智慧服务\",\n" +
                 "      \"sub_button\":[\n" +
                 "        {\n" +
                 "          \"type\":\"view\",\n" +
-                "          \"name\":\"腾讯新闻\",\n" +
+                "          \"name\":\"平台公告\",\n" +
                 "          \"url\":\"https://news.qq.com/\"\n" +
                 "        },\n" +
                 "        {\n" +
                 "          \"type\":\"view\",\n" +
-                "          \"name\":\"网易新闻\",\n" +
+                "          \"name\":\"屌丝有话说\",\n" +
                 "          \"url\":\"https://news.163.com/\"\n" +
                 "        },\n" +
                 "        {\n" +
                 "          \"type\":\"view\",\n" +
-                "          \"name\":\"搜索更多\",\n" +
+                "          \"name\":\"智享搜搜乐\",\n" +
                 "          \"url\":\"https://www.baidu.com/index.php?tn=monline_3_dg\"\n" +
                 "        }]\n" +
                 "    },\n" +
                 "    {\n" +
-                "      \"name\":\"租房新闻\",\n" +
+                "      \"name\":\"海量房源\",\n" +
                 "      \"type\":\"view\",\n" +
                 "      \"url\":\"http://4ayuih.natappfree.cc/index.html\"\n" +
                 "    }]\n" +
