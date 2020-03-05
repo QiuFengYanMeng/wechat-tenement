@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.wang.tenement.dao.house.HouseDao">
+    <!--新增房源-->
+    <insert id="add" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        INSERT INTO biz_house
+        (
+            img_src , title , house_type , orientation , sum_price , unit_price , community , house_area , floor , fitment , heating ,
+            house_year , floor_type , comment , create_by
+        )
+        VALUE
+        (
+            #{imgSrc} , #{title} , #{houseType} , #{orientation} , #{sumPrice} , #{unitPrice} , #{community} , #{houseArea} ,
+            #{floor} , #{fitment} , #{heating} , #{houseYear} , #{floorType} , #{comment} , #{createUser.id}
+        )
+    </insert>
+
+    <!--新增标签-->
+    <insert id="addLabel">
+        INSERT INTO biz_house_label
+        (
+            house_id , title
+        )
+        VALUES
+        <foreach collection="labelList" item="label" separator=",">
+            (#{houseId} , #{label.title})
+        </foreach>
+    </insert>
+
+    <!--获取房源列表-->
+    <select id="listHouse" resultMap="listMap">
+        SELECT
+        h.id ,
+        img_src,
+        h.title,
+        house_type,
+        orientation,
+        sum_price,
+        unit_price,
+        community,
+        hl.title AS label_title
+        FROM (
+            SELECT * FROM biz_house
+            WHERE del_flag = 0
+            ORDER BY create_date DESC
+            LIMIT #{start} , #{limit}
+        ) h
+        LEFT JOIN biz_house_label hl ON hl.house_id = h.id
+    </select>
+    <!--处理房源列表，结果集的映射-->
+    <resultMap id="listMap" type="HouseVO">
+        <id column="id" property="id" />
+        <result column="img_src" property="imgSrc" />
+        <result column="title" property="title" />
+        <result column="house_type" property="houseType" />
+        <result column="orientation" property="orientation" />
+        <result column="sum_price" property="sumPrice" />
+        <result column="unit_price" property="unitPrice" />
+        <result column="community" property="community" />
+
+        <!--处理一对多映射-->
+        <collection property="labelList" javaType="java.util.List" ofType="HouseLabel">
+            <result column="label_title" property="title" />
+        </collection>
+    </resultMap>
+
+    <!--获取房源详情-->
+    <select id="getHouse" resultType="DetailVO">
+        SELECT
+        h.id,
+        h.img_src AS imgSrc,
+        title,
+        house_type AS houseType,
+        orientation,
+        sum_price AS sumPrice,
+        unit_price AS unitPrice,
+        community,
+        house_area AS houseArea,
+        floor,
+        fitment,
+        heating,
+        house_year AS houseYear,
+        floor_type AS floorType,
+        `comment`,
+        u.user_name AS `createUser.username`,
+        u.img_src AS `createUser.imgSrc`,
+        u.phone AS `createUser.phone`
+        FROM biz_house h
+        LEFT JOIN sys_user u ON u.id = h.create_by
+        WHERE h.id = #{id}
+        LIMIT 1
+    </select>
+</mapper>

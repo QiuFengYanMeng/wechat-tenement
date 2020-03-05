@@ -1,4 +1,4 @@
-package com.study.wang.tenement.controller;
+package com.study.wang.tenement.controller.wechat;
 
 import com.study.wang.tenement.util.AccessTokenUtil;
 import com.study.wang.tenement.util.MessageUtil;
@@ -129,7 +129,7 @@ public class WechatController {
                 "    {\n" +
                 "      \"name\":\"海量房源\",\n" +
                 "      \"type\":\"view\",\n" +
-                "      \"url\":\"http://4ayuih.natappfree.cc/index.html\"\n" +
+                "      \"url\":\"http://vaf5vc.natappfree.cc/index.html\"\n" +
                 "    }]\n" +
                 "}\n";
 

@@ -8,6 +8,7 @@
     <title>找房无忧-首页</title>
     <link rel="stylesheet" href="css/reset.css"/>
     <link rel="stylesheet" href="css/index.css"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" rel="script" type="text/javascript"></script>
 </head>
 <body>
 <!--头部-->
@@ -27,49 +28,9 @@
         <strong>热门房源</strong><br/>
         <span> Hot house</span>
     </h2>
-    <ul class="houseList">
-	   <a href="rentalDetails.html">
-		<li>
-            <div class="img"><img src="image/index/img1.jpg" alt=""/></div>
-            <div class="text">
-                <h3>文化部中间层 一层带阁楼</h3>
-                <p>2室1厅96㎡南北 <strong>1105万</strong></p>
-                <p>红庙北里 <span>14268元/平</span></p>
-                <p>
-                    <a href="#">学区房</a>
-                    <a href="#">独家</a>
-                </p>
-            </div>
-        </li>
-	   </a>
-        
-        <li>
-            <div class="img"><img src="image/index/img2.png" alt=""/></div>
-            <div class="text">
-                <h3>光大水墨 精装复式 稀缺</h3>
-                <p>2室1厅96㎡南北 <strong>280万</strong></p>
-                <p>光大水墨 <span>14268元/平</span></p>
-                <p>
-                    <a href="#">学区房</a>
-                    <a href="#">独家</a>
-                    <a href="#">满五唯一</a>
-                </p>
-            </div>
-        </li>
-        <li>
-            <div class="img"><img src="image/index/img3.png" alt=""/></div>
-            <div class="text">
-                <h3>南北通透两居 精装修 无</h3>
-                <p>2室1厅96㎡南北 <strong>320万</strong></p>
-                <p>北京新天地 <span>14268元/平</span></p>
-                <p>
-                    <a href="#">地铁房</a>
-                    <a href="#">独家</a>
-                </p>
-            </div>
-        </li>
-    </ul>
+    <ul class="houseList" id="houseList">
 
+    </ul>
 
 </section>
 
@@ -78,11 +39,41 @@
 
 <script src="js/rem.js"></script>
 <script>
-    var close = document.getElementById('close');
-    var download = document.getElementById('download');
-    close.onclick = function(){
-        download.style.display = 'none';
-    }
+
+    $.ajax({
+        url:"http://vaf5vc.natappfree.cc/tenement/list?page=1&limit=10",
+        dataType:"json",
+        success:function (res) {
+            var str = "";
+            for (var i = 0 ; i < res.data.length ; i++) {
+                str += "<a href=\"rentalDetails.html\">\n" +
+                    "<li>\n" +
+                    "<div class=\"img\"><img src=\""+ res.data[i].imgSrc +"\" alt=\"\"/></div>\n" +
+                    "<div class=\"text\">\n" +
+                    "<h3>"+ res.data[i].title +"</h3>\n" +
+                    "<p>"+ res.data[i].houseType + res.data[i].orientation +" <strong>"+ res.data[i].sumPrice +"万</strong></p>\n" +
+                    "<p>" + res.data[i].community + " <span>" +res.data[i].unitPrice+ "元/平</span></p>\n" +
+                    "<p>\n";
+
+                for (var j = 0; j < res.data[i].labelList.length; j++) {
+                    str += "<a href=\"#\">" + res.data[i].labelList[j].title + "</a>";
+                }
+                    str += "</p>\n" +
+                    "</div>\n" +
+                    "</li>\n" +
+                    "</a>";
+            }
+
+            if (str == "") {
+                $("#houseList").html("<li>暂无数据</li>");
+            }else {
+                $("#houseList").html(str);
+            }
+        },
+        error:function () {
+            alert("错误");
+        }
+    })
 </script>
 </body>
 </html>
