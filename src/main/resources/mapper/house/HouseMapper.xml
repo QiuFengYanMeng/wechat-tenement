@@ -42,10 +42,10 @@
         FROM (
             SELECT * FROM biz_house
             WHERE del_flag = 0
-            ORDER BY create_date DESC
             LIMIT #{start} , #{limit}
         ) h
         LEFT JOIN biz_house_label hl ON hl.house_id = h.id
+        ORDER BY h.create_date DESC
     </select>
     <!--处理房源列表，结果集的映射-->
     <resultMap id="listMap" type="HouseVO">

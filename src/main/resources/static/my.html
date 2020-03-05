@@ -8,15 +8,17 @@
     <title>找房无忧-我的页面</title>
     <link rel="stylesheet" href="css/reset.css"/>
     <link rel="stylesheet" href="css/my.css"/>
-
+    <script src="https://code.jquery.com/jquery-3.4.1.js" rel="script" type="text/javascript"></script>
 </head>
 <body>
 <!--头部-->
 <section class="head">
     <img class="bg" src="image/my/bg1.png" alt=""/>
     
-    <img class="logo" src="image/my/urse2.png" alt=""/>
-    <a class="login" href="#">登录</a>
+    <img class="logo" id="imgSrc" src="image/my/urse2.png" alt=""/>
+    <div id="username">
+        <a class="login" id="login-button" onclick="login()">登录</a>
+    </div>
 </section>
 
 <section class="userList">
@@ -39,5 +41,51 @@
 
 
 <script src="js/rem.js"></script>
+<script>
+    function login() {
+        //回调页面即是当前页面
+        var redirectUrl = encodeURIComponent(location.href);
+        location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx397e5e25b8bce662&redirect_uri=" + redirectUrl + "&response_type=code&scope=snsapi_userinfo"
+    }
+
+    /**
+     *
+     *  获取URL中的参数
+     * */
+    function getUrlParam(url,name){
+        var pattern = new RegExp("[?&]"+name+"\=([^&]+)", "g");
+        var matcher = pattern.exec(url);
+        var items = null;
+        if(null != matcher){
+            try{
+                items = decodeURIComponent(decodeURIComponent(matcher[1]));
+            }catch(e){
+                try{
+                    items = decodeURIComponent(matcher[1]);
+                }catch(e){
+                    items = matcher[1];
+                }
+            }
+        }
+        return items;
+    }
+
+    //获取code
+    var code = getUrlParam(location.href , "code");
+    if (code != null) {
+        //有code
+        $.ajax({
+            url:"http://vaf5vc.natappfree.cc/tenement/user/login?code=" + code,
+            dataType:"json",
+            success:function (res) {
+                $("#username").html("<a class=\"login\">"+res.data.username+"</a>");
+                $("#imgSrc").attr("src" , res.data.imgSrc);
+            },
+            error:function () {
+                alert("错误");
+            }
+        })
+    }
+</script>
 </body>
 </html>

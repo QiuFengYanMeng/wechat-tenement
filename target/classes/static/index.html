@@ -46,7 +46,7 @@
         success:function (res) {
             var str = "";
             for (var i = 0 ; i < res.data.length ; i++) {
-                str += "<a href=\"rentalDetails.html\">\n" +
+                str += "<a href=\"rentalDetails.html?id="+res.data[i].id+"\">\n" +
                     "<li>\n" +
                     "<div class=\"img\"><img src=\""+ res.data[i].imgSrc +"\" alt=\"\"/></div>\n" +
                     "<div class=\"text\">\n" +

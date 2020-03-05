@@ -34,6 +34,9 @@ wechat:
   secret: bd2e5394a6fea80fc638850eb4740f08
   accessTokenUrl:  https://api.weixin.qq.com/cgi-bin/token
   menuUrl: https://api.weixin.qq.com/cgi-bin/menu/create
+  userInfoUrl: https://api.weixin.qq.com/cgi-bin/user/info
+  loginTokenUrl:  https://api.weixin.qq.com/sns/oauth2/access_token
+  loginInfoUrl: https://api.weixin.qq.com/sns/userinfo
 
 mybatis:
   type-aliases-package: com/study/wang/tenement

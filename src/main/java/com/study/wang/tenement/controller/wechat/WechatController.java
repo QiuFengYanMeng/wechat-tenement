@@ -1,5 +1,6 @@
 package com.study.wang.tenement.controller.wechat;
 
+import com.study.wang.tenement.queue.user.UserQueue;
 import com.study.wang.tenement.util.AccessTokenUtil;
 import com.study.wang.tenement.util.MessageUtil;
 import com.study.wang.tenement.util.XMLUtil;
@@ -67,6 +68,9 @@ public class WechatController {
             //如果是关注事件
             if (event.equals("subscribe")) {
                 reply = "欢迎您关注微租房平台！";
+                //在这里实现，获取用户信息，并且信息入库
+                //放入阻塞队列
+                UserQueue.QUEUE.push(fromUser);
             }else if (event.equals("CLICK")) {
                 //如果是点击事件，获取菜单的key值，实现我们自己的业务逻辑
                 String key = map.get("EventKey");
