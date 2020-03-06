@@ -133,7 +133,7 @@ public class WechatController {
                 "    {\n" +
                 "      \"name\":\"海量房源\",\n" +
                 "      \"type\":\"view\",\n" +
-                "      \"url\":\"http://vaf5vc.natappfree.cc/index.html\"\n" +
+                "      \"url\":\"http://ktfvx5.natappfree.cc/index.html\"\n" +
                 "    }]\n" +
                 "}\n";
 

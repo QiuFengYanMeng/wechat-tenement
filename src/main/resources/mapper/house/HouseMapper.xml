@@ -90,4 +90,19 @@
         WHERE h.id = #{id}
         LIMIT 1
     </select>
+
+    <!--检查用户是否关注过某房源-->
+    <select id="check" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM biz_attention
+        WHERE create_by = #{userId} AND house_id = #{houseId}
+        LIMIT 1
+    </select>
+
+    <!--关注房源-->
+    <insert id="addAttention">
+        INSERT INTO biz_attention
+        (house_id , create_by)
+        VALUE
+        (#{houseId} , #{userId})
+    </insert>
 </mapper>

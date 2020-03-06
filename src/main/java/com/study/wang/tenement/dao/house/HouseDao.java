@@ -1,5 +1,6 @@
 package com.study.wang.tenement.dao.house;
 
+import com.study.wang.tenement.entity.house.Attention;
 import com.study.wang.tenement.entity.house.House;
 import com.study.wang.tenement.entity.house.HouseLabel;
 import com.study.wang.tenement.vo.house.DetailVO;
@@ -49,4 +50,16 @@ public interface HouseDao {
      * @return DetailVO对象
      * */
     DetailVO getHouse (int id);
+
+    /**
+     *  检查用户是否关注过某房源
+     * @param attention 数据实体
+     * */
+    int check (Attention attention);
+
+    /**
+     *  关注房源
+     * @param attention 数据实体
+     * */
+    int addAttention (Attention attention);
 }

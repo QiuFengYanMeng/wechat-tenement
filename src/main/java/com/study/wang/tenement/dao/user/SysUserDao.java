@@ -19,4 +19,10 @@ public interface SysUserDao {
      * @param user 数据实体
      * */
     int add (SysUser user);
+
+    /**
+     *  跟进openid获取用户ID
+     * @param openId openid
+     * */
+    int getUserId (String openId);
 }

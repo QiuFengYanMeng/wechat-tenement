@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/reset.css"/>
     <link rel="stylesheet" href="css/index.css"/>
     <script src="https://code.jquery.com/jquery-3.4.1.js" rel="script" type="text/javascript"></script>
+    <script src="js/public.js" rel="script" type="text/javascript"></script>
 </head>
 <body>
 <!--头部-->
@@ -41,7 +42,7 @@
 <script>
 
     $.ajax({
-        url:"http://vaf5vc.natappfree.cc/tenement/list?page=1&limit=10",
+        url: baseUrl + "/tenement/list?page=1&limit=10",
         dataType:"json",
         success:function (res) {
             var str = "";

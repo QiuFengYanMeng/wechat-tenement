@@ -3,10 +3,12 @@ package com.study.wang.tenement.service.user;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.study.wang.tenement.back.Back;
+import com.study.wang.tenement.dao.user.SysUserDao;
 import com.study.wang.tenement.entity.user.SysUser;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +37,9 @@ public class UserService {
     //换取用户信息的接口
     @Value("${wechat.loginInfoUrl}")
     private String loginInfoUrl;
+
+    @Autowired
+    private SysUserDao userDao;
 
     /**
      *  微信登录接口
@@ -73,6 +78,7 @@ public class UserService {
                 //设置用户名
                 user.setUsername(object.getString("nickname"));
                 user.setImgSrc(object.getString("headimgurl"));
+                user.setId(userDao.getUserId(openId));
 
                 //异步队列，检验用户是否在数据库中，以及写入数据库，省略实现。。。。
             }

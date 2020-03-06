@@ -12,4 +12,11 @@
             #{username} , #{phone} , #{openId} , #{imgSrc}
         )
     </insert>
+
+    <!--跟进openid获取用户ID-->
+    <select id="getUserId" resultType="java.lang.Integer">
+        SELECT id FROM sys_user
+        WHERE open_id = #{openId} AND del_flag = 0
+        LIMIT 1
+    </select>
 </mapper>

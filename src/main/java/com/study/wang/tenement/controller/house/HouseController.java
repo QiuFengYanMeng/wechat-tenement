@@ -1,6 +1,7 @@
 package com.study.wang.tenement.controller.house;
 
 import com.study.wang.tenement.back.Back;
+import com.study.wang.tenement.entity.house.Attention;
 import com.study.wang.tenement.entity.house.House;
 import com.study.wang.tenement.service.house.HouseService;
 import lombok.AllArgsConstructor;
@@ -51,5 +52,14 @@ public class HouseController {
     @GetMapping(value = "/detail/{id}")
     public Back getHouse (@PathVariable int id) {
         return houseService.getHouse(id);
+    }
+
+    /**
+     *  关注房源
+     * @param attention 数据实体
+     * */
+    @PostMapping(value = "/attention")
+    public Back addAttention (@RequestBody Attention attention) {
+        return houseService.addAttention(attention);
     }
 }

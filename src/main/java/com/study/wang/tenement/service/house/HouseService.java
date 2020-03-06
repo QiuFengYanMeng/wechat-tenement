@@ -2,7 +2,9 @@ package com.study.wang.tenement.service.house;
 
 import com.study.wang.tenement.back.Back;
 import com.study.wang.tenement.dao.house.HouseDao;
+import com.study.wang.tenement.entity.house.Attention;
 import com.study.wang.tenement.entity.house.House;
+import com.study.wang.tenement.util.redis.RedisUtil;
 import com.study.wang.tenement.vo.house.DetailVO;
 import com.study.wang.tenement.vo.house.HouseVO;
 import lombok.AllArgsConstructor;
@@ -60,5 +62,18 @@ public class HouseService {
      * */
     public Back<DetailVO> getHouse (int id) {
         return new Back<>(houseDao.getHouse(id)).msg("请求成功");
+    }
+
+    /**
+     *  关注房源
+     * @param attention 数据实体
+     * */
+    public Back addAttention (Attention attention) {
+        if (houseDao.check(attention) != 0) {
+            return new Back().error("您已经关注过");
+        }
+
+        houseDao.addAttention(attention);
+        return new Back().msg("关注成功");
     }
 }

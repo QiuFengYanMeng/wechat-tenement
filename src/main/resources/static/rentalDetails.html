@@ -8,7 +8,8 @@
     <title>找房无忧-租房详情页</title>
     <link rel="stylesheet" href="css/reset.css"/>
     <link rel="stylesheet" href="css/rentalList.css"/>
-    <script src="https://code.jquery.com/jquery-3.4.1.js" rel="script" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js?nn=54573" rel="script" type="text/javascript"></script>
+    <script src="js/public.js" rel="script" type="text/javascript"></script>
 </head>
 <body>
 <!--头部-->
@@ -30,7 +31,7 @@
     </div>
     <div class="mianText">
         <h2 id="title"></h2>
-        <a href="#">关注</a>
+        <a onclick="attention()">关注</a>
     </div>
     <ul class="houseMes1">
         <li>
@@ -118,7 +119,7 @@
     var id = getUrlParam(location.href , "id");
     if (id != null) {
         $.ajax({
-            url:"http://vaf5vc.natappfree.cc/tenement/detail/" + id,
+            url: baseUrl + "/tenement/detail/" + id,
             dataType:"json",
             success:function (res) {
                 $("#title").html(res.data.title);

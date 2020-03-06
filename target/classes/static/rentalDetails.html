@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/reset.css"/>
     <link rel="stylesheet" href="css/rentalList.css"/>
     <script src="https://code.jquery.com/jquery-3.4.1.js" rel="script" type="text/javascript"></script>
+    <script src="js/public.js" rel="script" type="text/javascript"></script>
 </head>
 <body>
 <!--头部-->
@@ -30,7 +31,7 @@
     </div>
     <div class="mianText">
         <h2 id="title"></h2>
-        <a href="#">关注</a>
+        <a onclick="attention()">关注</a>
     </div>
     <ul class="houseMes1">
         <li>
@@ -115,10 +116,40 @@
         return items;
     }
 
+    /**
+     *  关注房源
+     * */
+    function attention() {
+        //数据对象
+        var obj = {
+            userId: 1,
+            houseId: 1
+        };
+
+        var userCookie = getCookie("user");
+        obj.houseId = id;
+        obj.userId = userCookie.id;
+
+        $.ajax({
+            url: baseUrl + "/tenement/attention",
+            type:"post",
+            contentType: "application/json;charset=utf-8",
+            data:JSON.stringify(obj),
+            dataType:"json",
+            success:function (res) {
+                alert(res.msg);
+            },
+            error:function () {
+                alert("错误");
+            }
+        })
+    }
+
+
     var id = getUrlParam(location.href , "id");
     if (id != null) {
         $.ajax({
-            url:"http://vaf5vc.natappfree.cc/tenement/detail/" + id,
+            url: baseUrl + "/tenement/detail/" + id,
             dataType:"json",
             success:function (res) {
                 $("#title").html(res.data.title);

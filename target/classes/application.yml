@@ -30,14 +30,23 @@ spring:
 
 # 与微信相关的配置
 wechat:
+  # 微信公众号的应用id
   appId: wx397e5e25b8bce662
+  # 密钥
   secret: bd2e5394a6fea80fc638850eb4740f08
+  # 获取基础access_token的接口
   accessTokenUrl:  https://api.weixin.qq.com/cgi-bin/token
+  # 创建菜单的接口
   menuUrl: https://api.weixin.qq.com/cgi-bin/menu/create
+  # 通过UID机制获取用户信息的接口
   userInfoUrl: https://api.weixin.qq.com/cgi-bin/user/info
+  # 网页授权时，通过code获取access_token和openid的接口
   loginTokenUrl:  https://api.weixin.qq.com/sns/oauth2/access_token
+  # 根据access_token(非基础access_token)和openid换取用户信息的接口
   loginInfoUrl: https://api.weixin.qq.com/sns/userinfo
 
 mybatis:
+  # 扫描包下的类
   type-aliases-package: com/study/wang/tenement
+  # 扫描SQL映射文件
   mapper-locations: mapper/**/*.xml
