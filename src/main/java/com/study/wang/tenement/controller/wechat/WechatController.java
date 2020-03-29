@@ -30,6 +30,9 @@ public class WechatController {
     @Value("${wechat.menuUrl}")
     private String menuUrl;
 
+    @Value("${wechat.templateMsgUrl}")
+    private String templateMsgUrl;
+
     /**
      *  与微信服务器进行认证的API接口
      * */
@@ -133,7 +136,7 @@ public class WechatController {
                 "    {\n" +
                 "      \"name\":\"海量房源\",\n" +
                 "      \"type\":\"view\",\n" +
-                "      \"url\":\"http://ktfvx5.natappfree.cc/index.html\"\n" +
+                "      \"url\":\"http://nhkmdm.natappfree.cc/index.html\"\n" +
                 "    }]\n" +
                 "}\n";
 
@@ -151,5 +154,46 @@ public class WechatController {
         }
 
         return "success";
+    }
+
+    /**
+     *  发送模板消息
+     * */
+    @GetMapping(value = "/test/msg")
+    public Object testMsg () throws IOException {
+        String jsonBody = "{\n" +
+                "  \"touser\":\"oV0_7whrkuEIbV8uE_DCOLSj5dd8\",\n" +
+                "  \"template_id\":\"hhrI9DVPaEmT26XebFu80cGntr3KARXyHdVwKLn4Rto\",\n" +
+                "  \"data\":{\n" +
+                "    \"name\": {\n" +
+                "      \"value\":\"北京3环最牛逼的房\",\n" +
+                "      \"color\":\"#173177\"\n" +
+                "    },\n" +
+                "    \"username\":{\n" +
+                "      \"value\":\"王子洋\",\n" +
+                "      \"color\":\"#173177\"\n" +
+                "    },\n" +
+                "    \"time\": {\n" +
+                "      \"value\":\"2020-03-08\",\n" +
+                "      \"color\":\"#173177\"\n" +
+                "    },\n" +
+                "    \"remark\": {\n" +
+                "      \"value\":\"便宜点\",\n" +
+                "      \"color\":\"#173177\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}";
+
+        OkHttpClient client = new OkHttpClient();
+        RequestBody body = RequestBody.create(MediaType.parse("application/json;charset=utf-8") , jsonBody);
+        Request request = new Request.Builder().url(templateMsgUrl + "?access_token=" + AccessTokenUtil.getToken()).post(body).build();
+        Response response = client.newCall(request).execute();
+
+        if (response.isSuccessful()) {
+            String result = response.body().string();
+            System.out.println(result);
+            return "发送成功";
+        }
+        return "发送失败";
     }
 }

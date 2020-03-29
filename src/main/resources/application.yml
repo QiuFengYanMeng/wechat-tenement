@@ -44,6 +44,8 @@ wechat:
   loginTokenUrl:  https://api.weixin.qq.com/sns/oauth2/access_token
   # 根据access_token(非基础access_token)和openid换取用户信息的接口
   loginInfoUrl: https://api.weixin.qq.com/sns/userinfo
+  # 发送模板消息的接口
+  templateMsgUrl: https://api.weixin.qq.com/cgi-bin/message/template/send
 
 mybatis:
   # 扫描包下的类

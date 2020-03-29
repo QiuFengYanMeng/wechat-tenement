@@ -8,7 +8,7 @@
     <title>找房无忧-租房详情页</title>
     <link rel="stylesheet" href="css/reset.css"/>
     <link rel="stylesheet" href="css/rentalList.css"/>
-    <script src="https://code.jquery.com/jquery-3.4.1.js" rel="script" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js?nn=54573" rel="script" type="text/javascript"></script>
     <script src="js/public.js" rel="script" type="text/javascript"></script>
 </head>
 <body>
@@ -115,36 +115,6 @@
         }
         return items;
     }
-
-    /**
-     *  关注房源
-     * */
-    function attention() {
-        //数据对象
-        var obj = {
-            userId: 1,
-            houseId: 1
-        };
-
-        var userCookie = getCookie("user");
-        obj.houseId = id;
-        obj.userId = userCookie.id;
-
-        $.ajax({
-            url: baseUrl + "/tenement/attention",
-            type:"post",
-            contentType: "application/json;charset=utf-8",
-            data:JSON.stringify(obj),
-            dataType:"json",
-            success:function (res) {
-                alert(res.msg);
-            },
-            error:function () {
-                alert("错误");
-            }
-        })
-    }
-
 
     var id = getUrlParam(location.href , "id");
     if (id != null) {
